@@ -10,7 +10,7 @@ class User(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=150)
+    name = models.CharField(max_length=255)
     sub_name = models.CharField(max_length=150)
 
 
