@@ -63,6 +63,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'Mysite.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -88,11 +89,11 @@ WSGI_APPLICATION = 'Mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'shop',
-        'USER': 'andrey',
-        'PASSWORD': '1983',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': env.str('NAME'),
+        'USER': env.str('USER'),
+        'PASSWORD': env.str('PASSWORD'),
+        'HOST': env.str('HOST'),
+        'PORT': env.str('PORT'),
     }
 }
 
