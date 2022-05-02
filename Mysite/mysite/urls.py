@@ -1,4 +1,4 @@
-"""Mysite URL Configuration
+"""mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -20,4 +20,8 @@ from django.urls import include, path
 urlpatterns = [
     path('', include('app_admin.urls')),
     path('admin/', admin.site.urls),
+    path('collection/', include('app_admin.urls')),
+    path('contact/', include('app_admin.urls')),
+    path('racingboots/', include('app_admin.urls')),
+    path('shoes/', include('app_admin.urls')),
 ]

@@ -13,11 +13,15 @@ class Category(models.Model):
     name = models.CharField(max_length=150)
     sub_name = models.CharField(max_length=150)
 
+    def __str__(self):
+        return self.name
+
 
 class Item(models.Model):
     name = models.ForeignKey(Category, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=15, decimal_places=3)
     quantity = models.IntegerField()
+    img = models.ImageField(blank=True)
 
 
 class Order(models.Model):
