@@ -18,17 +18,20 @@ class Category(models.Model):
 
 
 class Item(models.Model):
-    name = models.ForeignKey(Category, on_delete=models.CASCADE)
+    name = models.CharField(max_length=155)
+    category = models.ManyToManyField(Category, )
     price = models.DecimalField(max_digits=15, decimal_places=3)
     quantity = models.IntegerField()
-    img = models.ImageField(blank=True)
+    img = models.ImageField(blank=True, upload_to="static/")
+
+    def get_categories(self):
+        return [x.name for x in self.category.all()]
 
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
     created = models.DateField(default=date.today)
     quantity = models.IntegerField()
-    cart = models.OneToOneField('Cart', on_delete=models.CASCADE)
 
 
 class Cart(models.Model):
