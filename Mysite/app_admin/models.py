@@ -11,10 +11,13 @@ class User(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=150)
-    sub_name = models.CharField(max_length=150)
+
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Катеории'
 
 
 class Item(models.Model):
@@ -24,8 +27,8 @@ class Item(models.Model):
     quantity = models.IntegerField()
     img = models.ImageField(blank=True, upload_to="static/")
 
-    def get_categories(self):
-        return [x.name for x in self.category.all()]
+    def __str__(self):
+        return self.category
 
 
 class Order(models.Model):
