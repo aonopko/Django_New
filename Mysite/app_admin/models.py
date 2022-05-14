@@ -1,5 +1,7 @@
 from datetime import date
 
+from phonenumber_field.modelfields import PhoneNumberField
+
 from django.db import models
 
 
@@ -12,12 +14,8 @@ class User(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=150)
 
-
     def __str__(self):
         return self.name
-
-    class Meta:
-        verbose_name = 'Катеории'
 
 
 class Item(models.Model):
@@ -27,8 +25,8 @@ class Item(models.Model):
     quantity = models.IntegerField()
     img = models.ImageField(blank=True, upload_to="static/")
 
-    def __str__(self):
-        return self.category
+    def get_categories(self):
+        return [x.name for x in self.category.all()]
 
 
 class Order(models.Model):
@@ -39,3 +37,10 @@ class Order(models.Model):
 
 class Cart(models.Model):
     items = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='cart')
+
+
+class Feedback(models.Model):
+    name = models.CharField(max_length=255)
+    phone = PhoneNumberField()
+    email = models.EmailField(max_length=155)
+    massage = models.CharField(max_length=1000)

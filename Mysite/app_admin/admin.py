@@ -21,7 +21,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price', 'quantity', 'image_show']
+    list_display = ['name', 'price', 'quantity', 'image_show', 'get_categories']
     filter_horizontal = ('category', )
 
     def image_show(self, obj):
