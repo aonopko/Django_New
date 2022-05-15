@@ -43,4 +43,4 @@ class Feedback(models.Model):
     name = models.CharField(max_length=255)
     phone = PhoneNumberField()
     email = models.EmailField(max_length=155)
-    massage = models.CharField(max_length=1000)
+    massage = models.CharField(max_length=500)

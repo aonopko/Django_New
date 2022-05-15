@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView, FormView
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django.http import HttpResponse
 
@@ -27,11 +27,8 @@ class ShoesView(TemplateView):
     template_name = 'shoes.html'
 
 
-def view_contact(request):
-    return HttpResponse('<h1>Log is good </h1>')
-
 def get_name(request):
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
-        return render(request, 'contact.html', {'form': form})
+        return redirect(request, 'index.html', {'form': form})
 
