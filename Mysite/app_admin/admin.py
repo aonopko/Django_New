@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import Cart, Category, Order, Item
+from .models import Cart, Category, Order, Item, Feedback
+
 
 
 @admin.register(Cart)
@@ -27,3 +28,8 @@ class ItemAdmin(admin.ModelAdmin):
     def image_show(self, obj):
         if obj.img:
             return mark_safe(f'<img src= "{obj.img.url}" width="50" height="50"')
+
+
+@admin.register(Feedback)
+class FeedbackAdmin(admin.ModelAdmin):
+    pass

@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView, FormView
 from django.shortcuts import render
+from django.urls import reverse_lazy
 
 from .forms import FeedbackForm
 
@@ -15,6 +16,7 @@ class CollectionView(TemplateView):
 class ContactView(FormView):
     template_name = 'contact.html'
     form_class = FeedbackForm
+    success_url = reverse_lazy('index')
 
 
 class RacingBootsView(TemplateView):
