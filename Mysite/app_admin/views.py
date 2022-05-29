@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView, FormView
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -18,6 +19,11 @@ class ContactView(FormView):
     form_class = FeedbackForm
     success_url = reverse_lazy('index')
 
+    def form_valid(self, form):
+        form.save()
+        return HttpResponseRedirect(self.get_success_url())
+
+
 
 class RacingBootsView(TemplateView):
     template_name = 'racingboots.html'
@@ -27,7 +33,7 @@ class ShoesView(TemplateView):
     template_name = 'shoes.html'
 
 
-def get_name(request):
-    if request.method == 'POST':
-        form = FeedbackForm(request.POST)
-        return render(request, 'index.html', {'form': form})
+#def get_name(request):
+    #if request.method == 'POST':
+        #form = FeedbackForm(request.POST)
+        #return render(request, 'index.html', {'form': form})

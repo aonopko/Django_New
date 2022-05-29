@@ -1,6 +1,6 @@
 
 from django.db import models
-from ..app_admin.models import Item
+from app_admin.models import Item
 
 
 class CartItem(models.Model):

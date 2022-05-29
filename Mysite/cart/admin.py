@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from models import CartItem
+from .models import CartItem
 
 
 @admin.register(CartItem)
-class ItemAdmin(admin.ModelAdmin):
+class CartItemAdmin(admin.ModelAdmin):
     pass
 
 
