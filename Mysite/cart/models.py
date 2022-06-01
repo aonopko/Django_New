@@ -1,4 +1,3 @@
-
 from django.db import models
 from app_admin.models import Item
 

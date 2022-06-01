@@ -27,7 +27,7 @@ class Item(models.Model):
     price = models.DecimalField(max_digits=155,
                                 decimal_places=3,
                                 verbose_name="Цена")
-    quantity = models.IntegerField(verbose_name="Описание")
+    quantity = models.IntegerField(verbose_name="Количество")
     img = models.ImageField(blank=True, upload_to="static/")
 
     def get_categories(self):

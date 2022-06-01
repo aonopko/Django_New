@@ -24,7 +24,6 @@ class ContactView(FormView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-
 class RacingBootsView(TemplateView):
     template_name = 'racingboots.html'
 
@@ -33,7 +32,7 @@ class ShoesView(TemplateView):
     template_name = 'shoes.html'
 
 
-#def get_name(request):
-    #if request.method == 'POST':
-        #form = FeedbackForm(request.POST)
-        #return render(request, 'index.html', {'form': form})
+def get_name(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        return render(request, 'index.html', {'form': form})
