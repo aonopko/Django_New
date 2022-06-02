@@ -1,8 +1,9 @@
-from decimal import Decimal
+#from decimal import Decimal
 
 from django.conf import settings
 
-from Mysite.app_admin.models import Item
+#from Mysite.app_admin.models import Item
+
 
 class Cart(object):
 
